@@ -90,9 +90,9 @@ void parseBuffer(String &g_restString)
 { 
     // Buffer Consumer
     String command ="";
-    uint32_t parm1;
-    uint32_t parm2;
-    uint32_t parm3;
+    uint32_t parmColor;
+    uint32_t parmSpeed;
+    uint32_t parmDwell;
     // uint32_t parm4;
     uint32_t index;
   
@@ -121,67 +121,67 @@ void parseBuffer(String &g_restString)
     
     //ID printAllChrs(g_restString); // DEBUG PRINT
     
-    // Read parm1 Color
+    // Read parmColor Color
     index =g_restString.indexOf('/');
-    parm1 = g_restString.toInt();
-    g_restString.remove(0,(index+1)); // parm1 + /
-    Serial << "parm1 -> " << parm1 << endl; // DEBUG PRINT
+    parmColor = g_restString.toInt();
+    g_restString.remove(0,(index+1)); // parmColor + /
+    Serial << "parmColor -> " << parmColor << endl; // DEBUG PRINT
 
-    // Read parm2  delay msecs added 8/7/2016
+    // Read parmSpeed  delay msecs added 8/7/2016
     index =g_restString.indexOf('/');
-    parm2 = g_restString.toInt();
-    g_restString.remove(0,(index+1)); // parm2 + /
-    Serial << "parm2 -> " << parm2 << endl; // DEBUG PRINT    
+    parmSpeed = g_restString.toInt();
+    g_restString.remove(0,(index+1)); // parmSpeed + /
+    Serial << "parmSpeed -> " << parmSpeed << endl; // DEBUG PRINT    
             
-    // Read parm3 time secs
+    // Read parmDwell time secs
     index =g_restString.indexOf('\n'); // \r\n 0xD,0xA
-    parm3 = g_restString.toInt();
-    g_restString.remove (0,(index+1)); // parm3 + '/' + \r\n
-    Serial << "parm3 -> " << parm3 << endl ; // DEBUG PRINT
+    parmDwell = g_restString.toInt();
+    g_restString.remove (0,(index+1)); // parmDwell + '/' + \r\n
+    Serial << "parmDwell -> " << parmDwell << endl ; // DEBUG PRINT
            
     //ID printAllChrs(g_restString); // DEBUG PRINT
   
     // is "colorWipe" command?
     if (command == "colorWipe") {
        // ID             color, delay               
-       colorWipe(ALL, 1, parm1, parm2, parm3);
-       //colorWipe(parm1, parm2, parm3);
-       //colorWipe_S(ALL, 1, parm1, parm2, parm3);
+       colorWipe(ALL, 1, parmColor, parmSpeed, parmDwell);
+       //colorWipe(parmColor, parmSpeed, parmDwell);
+       //colorWipe_S(ALL, 1, parmColor, parmSpeed, parmDwell);
     }
   
     // is "rainbow" command?
     else if (command == "rainbow") {
         // ID         delay
-        rainbow(ALL,1,parm2,parm3);
-        //rainbow(parm2, parm3);
+        rainbow(ALL,1,parmSpeed,parmDwell);
+        //rainbow(parmSpeed, parmDwell);
     }
   
     // is "rainbowCycle" command?
     else if (command == "rainbowCycle") {
         // ID              delay, time
-        rainbowCycle(ALL,1,parm2,parm3);
-        //rainbowCycle(parm2, parm3);
+        rainbowCycle(ALL,1,parmSpeed,parmDwell);
+        //rainbowCycle(parmSpeed, parmDwell);
     }
    
     // is "theaterChase" command?
     else if (command == "theaterChase") {
        // ID              color, delay
-       theaterChase(ALL,1,parm1, parm2,parm3);
-       //theaterChase(parm1, parm2, parm3);
+       theaterChase(ALL,1,parmColor, parmSpeed,parmDwell);
+       //theaterChase(parmColor, parmSpeed, parmDwell);
     }
     
     // is "theaterChaseRainbow" command?
     else if (command == "theaterChaseRainbow") { 
        // ID                     delay
-       theaterChaseRainbow(ALL,1,parm2,parm3); 
-       //theaterChaseRainbow(parm2, parm3);   
+       theaterChaseRainbow(ALL,1,parmSpeed,parmDwell); 
+       //theaterChaseRainbow(parmSpeed, parmDwell);   
     }
     
     // is "colorTest" command? Runs multable effeects
     else if (command == "colorTest") {  
         // ID  
         colorTest();   
-       //effects(parm2);
+       //effects(parmSpeed);
     }
   
     // is "clear" command?

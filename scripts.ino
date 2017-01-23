@@ -6,7 +6,7 @@
 void colorTest(void)
 {
 byte stat = 0;
-
+/*
     // Serial << "rainDrop" << endl;
     for(int x = 0; x<6; x++)
     {
@@ -15,7 +15,7 @@ byte stat = 0;
          if(stat) return; // user terminated
          // Serial << "raindrop " << g_e_flag << endl; 
     }
-
+*/
      // Serial << "lightning" << endl;
      for (uint8_t x = 0; x<3 ;x++)
      { 

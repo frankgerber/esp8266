@@ -1,19 +1,24 @@
+#ifndef PINS_WEMOS_H
+#define PINS_WEMOS_H
 
-// static const uint8_t SDA = 4;
-// static const uint8_t SCL = 5;
+#include "../generic/common.h"
 
-static const uint8_t weMosLED_BUILTIN = 2;
-static const uint8_t weMosBUILTIN_LED = 2;
+#define SDA  4
+#define SCL  5
 
-static const uint8_t D0   = 16;
-static const uint8_t D1   = 5;
-static const uint8_t D2   = 4;
-static const uint8_t D3   = 0;
-static const uint8_t D4   = 2;
-static const uint8_t D5   = 14;
-static const uint8_t D6   = 12;
-static const uint8_t D7   = 13;
-static const uint8_t D8   = 15;
-static const uint8_t RX   = 3;
-static const uint8_t TX   = 1;
+#define LED_BUILTIN  2
+#define weMosBUILTIN_LED  2
 
+#define D0    16
+#define D1    5
+#define D2    4
+#define D3    0
+#define D4    2
+#define D5    14
+#define D6    12
+#define D7    13
+#define D8    15
+#define RX    3
+#define TX    1
+
+#endif /* Pins_Arduino_h */.,

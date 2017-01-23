@@ -3,10 +3,10 @@
 
 #include <Adafruit_NeoPixel.h>
 
-  #define PIN D4
-  #define SPOKES 1
+//  #define PIN D4
+  #define SPOKES 5
   #define MAXSPOKES 6
-  #define RADIUS 3
+  #define RADIUS 6
   #define NUMPIXEL RADIUS
   #define MAXRADIUS 60
   #define ALL SPOKES
@@ -22,13 +22,13 @@
   //   NEO_KHZ400  400 KHz (classic 'v1' (not v2) FLORA pixels, WS2811 drivers)
   //   NEO_GRB     Pixels are wired for GRB bitstream (most NeoPixel products)  "discreats"
   //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2) "g_strips"
-  #define LED_TYPE NEO_GRB
+  #define LED_TYPE NEO_RGB
   
-  Adafruit_NeoPixel g_strip[MAXSPOKES] = { Adafruit_NeoPixel(RADIUS, 2, NEO_GRB + NEO_KHZ800),
-                                        Adafruit_NeoPixel(RADIUS, 4, NEO_GRB + NEO_KHZ800),
-                                        Adafruit_NeoPixel(RADIUS, 5, NEO_GRB + NEO_KHZ800),
-                                        Adafruit_NeoPixel(RADIUS, 12, NEO_GRB + NEO_KHZ800),
-                                        Adafruit_NeoPixel(RADIUS, 13, NEO_GRB + NEO_KHZ800)};
+  Adafruit_NeoPixel g_strip[MAXSPOKES] = { Adafruit_NeoPixel(RADIUS, D1, LED_TYPE + NEO_KHZ800),
+                                           Adafruit_NeoPixel(RADIUS, D2, LED_TYPE + NEO_KHZ800),
+                                           Adafruit_NeoPixel(RADIUS, D3, LED_TYPE + NEO_KHZ800),
+                                           Adafruit_NeoPixel(RADIUS, D4, LED_TYPE + NEO_KHZ800),
+                                           Adafruit_NeoPixel(RADIUS, D5, LED_TYPE + NEO_KHZ800)};
   
   // IMPORTANT: To reduce NeoPixel burnout risk, add 1000 uF capacitor across
   // pixel power leads, add 300 - 500 Ohm resistor on first pixel's data input
